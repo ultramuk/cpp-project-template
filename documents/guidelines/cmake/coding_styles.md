@@ -70,7 +70,7 @@
 
 
 ```cmake
-# 좋은 예
+# GOOD
 project(MyProject)
 add_executable(MyTarget main.cpp)
 
@@ -85,7 +85,7 @@ Add_Executable(MyTarget main.cpp)
 - **근거** 탭 너비 설정에 의존하지 않고 일관된 들여쓰기를 보장함.
 
 ```cmake
-# 좋은 예
+# GOOD
 if(CONDITION)
   message("2칸으로 들여쓰기")
 endif()
@@ -113,7 +113,7 @@ endif()
 - **근거** 각 인수를 새 줄에 배치하면 종속성과 속성을 쉽게 파악할 수 있음.
 
 ```cmake
-# 좋은 예
+# GOOD
 target_link_libraries(MyTarget
   PUBLIC
     MyLibrary1
@@ -131,7 +131,7 @@ target_link_libraries(MyTarget PUBLIC MyLibrary1 PRIVATE MyLibrary2)
 - **근거** 종속성과 속성의 범위를 명시적으로 지정하면 모호성을 방지하고 올바르게 전파되도록 보장함.
 
 ```cmake
-# 좋은 예
+# GOOD
 target_include_directories(MyLibrary
   INTERFACE
     "${CMAKE_CURRENT_SOURCE_DIR}/include"
@@ -151,7 +151,7 @@ target_include_directories(MyLibrary
 - **근거** 일관된 구조는 파일을 예측 가능하고 탐색하기 쉽게 만듦.
 
 ```cmake
-# 좋은 예
+# GOOD
 cmake_minimum_required(VERSION 3.15)
 project(MyProject LANGUAGES CXX)
 
@@ -181,7 +181,7 @@ endif()
 - **근거** 전역 변수는 숨겨진 종속성을 만듦. 함수 인수를 통해 변수를 전달하거나 타겟 속성을 사용하는 것을 선호.
 
 ```cmake
-# 좋은 예
+# GOOD
 # 속성은 타겟과 함께 캡슐화됨
 target_compile_definitions(MyTarget PRIVATE MY_DEFINITION)
 
@@ -198,7 +198,7 @@ add_compile_definitions(MY_DEFINITION)
 - **근거** 명확성을 보장하고 코드의 의도를 쉽게 파악할 수 있게 함.
 
 ```cmake
-# 좋은 예
+# GOOD
 set(source_directory ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 # 나쁜 예
@@ -212,7 +212,7 @@ set(src_dir ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 
 ```cmake
-# 좋은 예
+# GOOD
 set(executable_sources
   main.cpp
   utils.cpp
