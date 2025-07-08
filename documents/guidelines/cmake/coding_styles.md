@@ -74,7 +74,7 @@
 project(MyProject)
 add_executable(MyTarget main.cpp)
 
-# 나쁜 예
+# BAD
 PROJECT(MyProject)
 Add_Executable(MyTarget main.cpp)
 ```
@@ -90,7 +90,7 @@ if(CONDITION)
   message("2칸으로 들여쓰기")
 endif()
 
-# 나쁜 예
+# BAD
 if(CONDITION)
     message("4칸으로 들여쓰기")
 endif()
@@ -121,7 +121,7 @@ target_link_libraries(MyTarget
     MyLibrary2
 )
 
-# 나쁜 예
+# BAD
 target_link_libraries(MyTarget PUBLIC MyLibrary1 PRIVATE MyLibrary2)
 ```
 
@@ -137,7 +137,7 @@ target_include_directories(MyLibrary
     "${CMAKE_CURRENT_SOURCE_DIR}/include"
 )
 
-# 나쁜 예 (그리고 PUBLIC으로 기본 설정되어 의도와 다를 수 있음)
+# BAD (그리고 PUBLIC으로 기본 설정되어 의도와 다를 수 있음)
 target_include_directories(MyLibrary
   "${CMAKE_CURRENT_SOURCE_DIR}/include"
 )
@@ -185,7 +185,7 @@ endif()
 # 속성은 타겟과 함께 캡슐화됨
 target_compile_definitions(MyTarget PRIVATE MY_DEFINITION)
 
-# 나쁜 예
+# BAD
 # 이는 디렉토리 내의 모든 후속 타겟에 영향을 미침
 add_compile_definitions(MY_DEFINITION)
 ```
@@ -201,7 +201,7 @@ add_compile_definitions(MY_DEFINITION)
 # GOOD
 set(source_directory ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
-# 나쁜 예
+# BAD
 set(src_dir ${CMAKE_CURRENT_SOURCE_DIR}/src)
 ```
 
@@ -218,7 +218,7 @@ set(executable_sources
   utils.cpp
 )
 
-# 나쁜 예
+# BAD
 set(file_list
   main.cpp
   utils.cpp
