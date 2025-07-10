@@ -1,19 +1,19 @@
 /**
- * @file add.cpp
+ * @file subtract.cpp
  * @author kmlim
- * @brief Add function에 대한 단위 테스트.
+ * @brief Subtract function에 대한 단위 테스트.
  * @version 0.1
  * @date 2025-07-10
  *
  * @copyright LAONROAD (c) 2025
  *
  */
-#include "example/math/add/hpp"
+#include "example/math/subtract/hpp"
 
 #include <catch2/catch_test_macros.hpp>
 #include <random>
 
-TEST_CASE("Add function with random numbers", "[unit][math][add]") {
+TEST_CASE("Subtract function with random numbers", "[unit][math][subtract]") {
     // 준비(Arrange)
     constexpr int kNumIterations = 100;
     constexpr int kRange = 10000;
@@ -24,10 +24,10 @@ TEST_CASE("Add function with random numbers", "[unit][math][add]") {
     for(int i=0; i<kNumIterations; ++i) {
         const int FirstNumber = distribution(generator);
         const int SecondNumber = distribution(generator);
-        const int ExpectedResult = FirstNumber + SecondNumber;
+        const int ExpectedResult = FirstNumber - SecondNumber;
 
         // 실행(Act)
-        const int ActualResult = example::math::Add(FirstNumber, SecondNumber);
+        const int ActualResult = example::math::Subtract(FirstNumber, SecondNumber);
 
         // 단언(Assert)
         REQUIRE(ActualResult == ExpectedResult);
