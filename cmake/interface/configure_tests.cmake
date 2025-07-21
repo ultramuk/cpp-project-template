@@ -17,13 +17,14 @@ function(configure_tests)
   set(multiValueArgs)
   cmake_parse_arguments(ARG "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
-  if(NOT ${PROJECT_NAME})
-    return()
-  endif()
+  # 소스 코드에는 존재하지만 강의에는 없음
+  # if(NOT ${PROJECT_NAME})
+  #   return()
+  # endif()
 
-  if(NOT TARGET ${PROJECT_NAME})
-    return()
-  endif()
+  # if(NOT TARGET ${PROJECT_NAME})
+  #   return()
+  # endif()
 
   if(NOT ARG_TEST_DIR)
     message(FATAL_ERROR "configure_tests() requires the 'TEST_DIR' argument.")
