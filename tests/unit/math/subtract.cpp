@@ -8,7 +8,7 @@
  * @copyright LAONROAD (c) 2025
  *
  */
-#include "example/math/subtract/hpp"
+#include "example/math/subtract.hpp"
 
 #include <catch2/catch_test_macros.hpp>
 #include <random>
