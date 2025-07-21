@@ -8,6 +8,7 @@
  * @copyright LAONROAD (c) 2025
  *
  */
+#include "example/math/add.hpp"
 
 namespace example::math {
 
