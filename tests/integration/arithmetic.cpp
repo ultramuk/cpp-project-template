@@ -30,22 +30,19 @@ TEST_CASE(
         const int SecondNumber = distribution(generator);
         const int ThirdNumber = distribution(generator);
 
-        for (int i = 0; i < kNumIterations; ++i) {
-            const int FirstNumber = distribution(generator);
-            const int SecondNumber = distribution(generator);
-            const int ThirdNumber = distribution(generator);
+        // (a + b) - c에 대한 실행(Act)
+        const int AddFirstResult = example::math::Add(FirstNumber, SecondNumber);
+        const int FinalResult1 =
+            example::math::Subtract(AddFirstResult, ThirdNumber);
+        // FinalResult1에 대한 단언(Assert)
+        REQUIRE(FinalResult1 == (FirstNumber + SecondNumber) - ThirdNumber);
 
-            // (a + b) - c에 대한 실행(Act)
-            const int AddFirstResult = example::math::Add(FirstNumber, SecondNumber);
-            const int FinalResult1 =
-                example::math::Subtract(AddFirstResult, ThirdNumber);
-            // ... FinalResult1에 대한 단언(Assert)
 
-            // a - (b + c)에 대한 실행(Act)
-            const int AddSecondResult = example::math::Add(SecondNumber, ThirdNumber);
-            const int FinalResult2 =
-                example::math::Subtract(FirstNumber, AddSecondResult);
-            // ... FinalResult2에 대한 단언(Assert)
-        }
+        // a - (b + c)에 대한 실행(Act)
+        const int AddSecondResult = example::math::Add(SecondNumber, ThirdNumber);
+        const int FinalResult2 =
+            example::math::Subtract(FirstNumber, AddSecondResult);
+        // FinalResult2에 대한 단언(Assert)
+        REQUIRE(FinalResult2 == FirstNumber - (SecondNumber + ThirdNumber));
     }
 }
