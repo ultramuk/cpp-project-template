@@ -66,21 +66,23 @@ configure_project(${PROJECT_NAME})
 # =============================================================================
 # --- Add Library
 set(source_files
+  source/example/math/add.cpp
+  source/example/math/subtract.cpp
 )
 
 set(library_dependencies "")
 
-# configure_library(
-# TYPE STATIC
-# SOURCES ${source_files}
-# DEPENDENCIES ${library_dependencies}
-# )
+configure_library(
+  TYPE STATIC
+  SOURCES ${source_files}
+  DEPENDENCIES ${library_dependencies}
+)
 
 # --- Add Executable
-# configure_executable(
-# SOURCE
-# DEPENDENCIES
-# )
+configure_executable(
+  SOURCE executables/print_math_result.cpp
+  DEPENDENCIES spdlog
+)
 
 # =============================================================================
 # Testing and Tools
